@@ -33,5 +33,51 @@ function Ejercisio18(){
     }
 }
 
-Ejercisio18()
+function Ejercisio24(){
+    const n = Number(prompt("(Ejercisio 24) Ingresar numero para la sumatoria"))
+    let i = 1
+    let output = 0
+    while(i<=n){
+        output = output+i
+        i++
+    }
+    console.log(`El resultado es ${output}`)
+}
+
+function Ejercisio36(){
+    let char = "*"
+    console.log(`Thing: ${char.repeat(0)}`)
+
+    for(let i=1;i<=10; i=i+2){
+        console.log(i)
+        document.write(char.repeat(i))
+        document.write("<br>")
+    }
+}
+
+function Ejercisio42(a){
+    if (typeof a == "number"){
+        console.log("(Ejercisio 42) passed")
+    }
+    else{
+        console.log("(Ejercisio 42) Not passed")
+    }
+}
+
+function Ejercisio48(){
+    givenArray = [1,2,3,4,5,6]
+    outArray = []
+    for(let i=0; i<givenArray.length; i++){
+        outArray.push(givenArray[i]+1)
+    }
+    console.log(outArray)
+}
+
+function Ejercisio54(){
+    exampleArray = ["J","o","h","n","","J","a","i","m","e"]
+    console.log(exampleArray.toString())
+}
+
+Ejercisio54()
+
 

@@ -44,6 +44,33 @@ function Ejercisio24(){
     console.log(`El resultado es ${output}`)
 }
 
+function Ejercisio30(){
+    const number = Number(prompt("Ingresar numero"))
+    let output = []
+
+    for(i=1; i<= number; i++){
+        let divisors = []
+        let result = 0
+        for(let x=1; x<i; x++){
+            if(i%x===0){
+                divisors.push(x)
+            }
+        }
+
+        for (let y=0;y<divisors.length;y++){
+            result += divisors[y]
+        }
+
+        if(result==i){
+            output.push(i)
+        }
+    }
+
+    for(let m = 0; m<output.length; m++){
+        console.log(output[m])
+    }
+}
+
 function Ejercisio36(){
     let char = "*"
     console.log(`Thing: ${char.repeat(0)}`)
@@ -78,6 +105,6 @@ function Ejercisio54(){
     console.log(exampleArray.toString())
 }
 
-Ejercisio54()
+Ejercisio30(30)
 
 

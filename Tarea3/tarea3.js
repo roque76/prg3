@@ -132,6 +132,62 @@ const test2 = new Persona4("John","18","1056122169","H",70,1.69)
 // console.log(test2.idealWeight())
 
 class Password{
-    
+    constructor(password,length){
+        this.password = password
+        this.length = length
+    }
+
+    isStrong(){
+        let output = false
+        if(this.length<10){
+            return output
+        }
+
+        const passList = this.password.split("")
+
+        let upperCase = 0
+        let undderCase = 0
+        let numbers = 0
+
+        for(let i = 0; i<=passList.length;i++){
+            if(undderCase<2){
+                if(passList[i]==passList[i].toLowerCase()){
+                    undderCase++
+                }
+            }
+            else if(upperCase<3){
+                if(passList[i]==passList[i].toUpperCase()){
+                    upperCase++
+                }
+            }
+            else if (numbers<6){
+                let target = parseFloat(passList[i])
+                if(!isNaN(target)==true){
+                    numbers++
+                }
+            }
+            else{
+                output = true
+                break
+            }
+
+
+        }
+        return output
+    }
+
+    securityPassword(){
+        if(this.length<=6){
+            return "Weak"
+        }
+        else if(this.length<=10){
+            return "Medium"
+        }
+        else{
+            return "Strong"
+        }
+    }
 }
 
+const test3 = new Password("StronGPassWord123456",20)
+console.log(test3.isStrong())

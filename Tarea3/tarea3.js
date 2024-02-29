@@ -277,7 +277,37 @@ class Chimuela{
     }
 }
 
-const test5 = new Chimuela()
-test5.eat(85)
-console.log(test5.displayEnergy())
-console.log(test5.howMuchKmToFly())
+// const test5 = new Chimuela()
+// test5.eat(85)
+// console.log(test5.displayEnergy())
+// console.log(test5.howMuchKmToFly())
+
+class Calculator{
+    cargar(firstValue){
+        this.value = firstValue
+    }
+
+    sumar(number){
+        this.value+=number
+    }
+
+    restar(number){
+        this.value-=number
+    }
+
+    multiplicar(number){
+        this.value*=number
+    }
+    
+    actualValue(){
+        return this.value
+    }
+}
+
+// const test6 = new Calculator()
+// test6.cargar(0)
+// test6.sumar(4)
+// test6.multiplicar(5)
+// test6.restar(8)
+// test6.multiplicar(2)
+// console.log(test6.actualValue())

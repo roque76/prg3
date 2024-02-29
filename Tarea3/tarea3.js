@@ -346,3 +346,49 @@ class Libro{
         return `Title: ${this.title}, Autor: ${this.autor}, Stock: ${this.stock}, BorrowedStock: ${this.borrowedStock}`
     }
 }
+
+class Enterprise{
+    constructor(){
+        this.coraza = 5
+        this.potencia = 50
+    }
+
+    encontrarPilaAtomica(){
+        if(this.potencia+25>100){
+            this.potencia = 100
+        }
+        else{
+            this.potencia+=25
+        }
+    }
+
+    encontrarEscudo(){
+        if(this.coraza+10>20){
+            this.coraza = 20
+        }
+        else{
+            this.coraza+=10
+        }
+    }
+
+    takeDamage(damage){
+        if(this.coraza-damage<0){
+            damage = this.coraza-damage
+            this.coraza=0
+            this.potencia+=damage
+        }
+        else{
+            console.log(`enter`)
+            this.coraza-=damage
+        }
+    }
+
+    displayData(){
+        return `Coraza: ${this.coraza}, Potencia:${this.potencia}`
+    }
+}
+
+// const enterprise = new Enterprise()
+// enterprise.takeDamage(5)
+// enterprise.encontrarEscudo()
+// console.log(enterprise.displayData())

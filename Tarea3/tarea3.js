@@ -311,3 +311,38 @@ class Calculator{
 // test6.restar(8)
 // test6.multiplicar(2)
 // console.log(test6.actualValue())
+
+class Libro{
+    constructor(title,autor,stock,borrowedStock){
+        this.title = title
+        this.autor = autor
+        this.stock = stock
+        this.borrowedStock = borrowedStock
+    }
+
+    borrow(quantity){
+        if(quantity>this.stock){
+            return false
+        }
+        else{
+            this.stock-=quantity
+            this.borrowedStock+=quantity
+            return true
+        }
+    }
+
+    returnBorrowed(quantity){
+        if(quantity>this.borrowedStock){
+            return false
+        }
+        else{
+            this.stock+=quantity
+            this.borrowedStock-=quantity
+            return true
+        }
+    }
+
+    toString(){
+        return `Title: ${this.title}, Autor: ${this.autor}, Stock: ${this.stock}, BorrowedStock: ${this.borrowedStock}`
+    }
+}

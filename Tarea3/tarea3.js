@@ -383,12 +383,30 @@ class Enterprise{
         }
     }
 
+    fortalezaDefensiva(){
+        return this.potencia+this.coraza
+    }
+
+    necesitaFortalecerse(){
+        if(this.coraza=0 && this.potencia<20){
+            return true
+        }
+        else{
+            return false
+        }
+    }
+
+    attackPoints(){
+        if(this.potencia<20){return 0}
+        else{return (this.potencia-20)/2}
+    }
+
     displayData(){
         return `Coraza: ${this.coraza}, Potencia:${this.potencia}`
     }
 }
 
-// const enterprise = new Enterprise()
-// enterprise.takeDamage(5)
-// enterprise.encontrarEscudo()
-// console.log(enterprise.displayData())
+const enterprise = new Enterprise()
+enterprise.takeDamage(5)
+enterprise.encontrarEscudo()
+console.log(enterprise.displayData())

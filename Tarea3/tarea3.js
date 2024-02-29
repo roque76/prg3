@@ -225,11 +225,59 @@ class Counter{
     }
 }
 
-const test4 = new Counter(0)
-test4.actualValue(10)
-test4.increment()
-test4.increment()
-test4.decrement()
-test4.increment()
-console.log(test4.actualValue())
-console.log(test4.lastMessage())
+// const test4 = new Counter(0)
+// test4.actualValue(10)
+// test4.increment()
+// test4.increment()
+// test4.decrement()
+// test4.increment()
+// console.log(test4.actualValue())
+// console.log(test4.lastMessage())
+
+class Chimuela{
+    constructor(){
+        this.energy = 0
+    }
+
+    eat(grams){
+        this.energy += grams*4
+    }
+    fly(kms){
+        this.energy -= 10
+        this.energy -= kms
+    }
+
+    isWeak(){
+        if(this.energy<50){
+            return "Weak"
+        }
+    }
+
+    isStrong(){
+        if(this.energy>500 && this.energy<1000){
+            return "Happy"
+        }
+    }
+
+    howMuchKmToFly(){
+        let output = this.energy/5
+
+        if(this.energy>300 && this.energy<=400){
+            output+=10
+        }
+        if (this.energy%20==0){
+            output+=15
+        }
+
+        return output
+    }
+
+    displayEnergy(){
+        return this.energy
+    }
+}
+
+const test5 = new Chimuela()
+test5.eat(85)
+console.log(test5.displayEnergy())
+console.log(test5.howMuchKmToFly())

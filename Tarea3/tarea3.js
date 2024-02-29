@@ -190,4 +190,46 @@ class Password{
 }
 
 const test3 = new Password("StronGPassWord123456",20)
-console.log(test3.isStrong())
+// console.log(test3.isStrong())
+
+class Counter{
+    constructor(value){
+        this.value = value
+        this.lastComand = ""
+    }
+
+    increment(){
+        this.value++
+        this.lastComand = "increment"
+    }
+
+    decrement(){
+        this.value--
+        this.lastComand = "decrement"
+    }
+
+    reset(){
+        this.value=0
+        this.lastComand = "reset"
+    }
+
+    actualValue(value = this.value){
+        if(value != this.value){
+            this.value = value
+            this.lastComand = "update"
+        }
+        return this.value
+    }
+    lastMessage(){
+        return this.lastComand
+    }
+}
+
+const test4 = new Counter(0)
+test4.actualValue(10)
+test4.increment()
+test4.increment()
+test4.decrement()
+test4.increment()
+console.log(test4.actualValue())
+console.log(test4.lastMessage())

@@ -1,6 +1,6 @@
 class Queue{
     constructor(){
-        this.elements = {}
+        this.elements = []
         this.first = 0
         this.final = 0
     }
@@ -136,29 +136,142 @@ class Queue{
         return "Numbers: "+ numbers +" "+ "Strings "+ strings +" "+ "Booleans: "+ boolean +" "+ "Arrays: "+ arrays
     }
 
+    point8(nameToDelete){
+        if(this.elements.indexOf(nameToDelete) == -1){
+            return "Element not found in queue"
+        }
+        else{
+            this.elements.splice(this.elements.indexOf(nameToDelete), 1)
+            this.final--
+            return "Element deleted"
+        }
+    }
+
+    point9(lengthToDelete){
+        if(lengthToDelete>this.elements.length || lengthToDelete<1){
+            return "Invalid position"
+        }
+        else{
+            this.elements.splice(lengthToDelete-1, 1)
+            this.final--
+            return "Element deleted"
+        }
+    }
+
+    point10(lengthToDelete){
+        if(lengthToDelete>this.elements.length || lengthToDelete<1){
+            return "Invalid position"
+        }
+        else{
+            let i = 0
+            while(i< lengthToDelete){
+                this.elements.splice(0,1)
+                i++
+                this.final--
+            }
+
+            return "Elements deleted"
+        }
+    }
 }
 
 
 
-const test1 = new Queue()
-test1.enqueue("Mirla")
-test1.enqueue("Dante")
-test1.enqueue(true)
-test1.enqueue([1,2,3])
-test1.point1(3)
-console.log(test1.printQueue())
-console.log(test1.point2())
-console.log(test1.point3())
-console.log(test1.printQueue())
-console.log(`Final : ${test1.final}`)
-console.log(`First:  ${test1.first}`)
-console.log(test1.point4())
-console.log(test1.point5())
-console.log(test1.point6())
-console.log(test1.point7())
+const queueObject = new Queue()
 
-console.log(test1.point8(3))
+queueObject.enqueue(2)
+queueObject.enqueue("Mike")
+queueObject.enqueue(4)
+queueObject.enqueue("Rost")
+queueObject.enqueue(6)
+queueObject.enqueue("Lila")
+queueObject.enqueue(8)
+queueObject.enqueue("Juan")
+queueObject.enqueue("PIPE")
+queueObject.enqueue(10)
 
+console.log("Basic Queue")
+console.log(queueObject.printQueue())
 
-
-
+//EJERCISIO 1 - Caso de prueba 1
+console.log("Caso de prueba 1 - EJERCISIO 1")
+queueObject.point1(4)
+console.log(queueObject.printQueue())
+//EJERCISIO 2 - Caso de prueba 1
+console.log(queueObject.point2())
+queueObject.point10(14)
+//EJERCISIO 2 - Caso de prueba 2
+console.log("Caso de prueba 2 - EJERCISIO 2")
+queueObject.enqueue(2)
+queueObject.enqueue("Mike")
+queueObject.enqueue(3)
+queueObject.enqueue("Rost")
+queueObject.enqueue(2)
+queueObject.enqueue("Lila")
+queueObject.enqueue(1)
+queueObject.enqueue("Juan")
+queueObject.enqueue("PIPE")
+queueObject.enqueue(10)
+console.log(queueObject.printQueue())
+console.log(queueObject.point2())
+//EJERCISIO 3 - Caso de prueba 1
+console.log("Caso de prueba 1 - EJERCISIO 3")
+console.log(queueObject.printQueue())
+console.log(queueObject.point3())
+queueObject.point10(10)
+//EJERCISIO 4 - Caso de prueba 1
+console.log("Caso de prueba 1 - EJERCISIO 4")
+queueObject.enqueue(2)
+queueObject.enqueue("Mike")
+queueObject.enqueue(3)
+queueObject.enqueue("Rost")
+queueObject.enqueue(4)
+queueObject.enqueue("Lila")
+queueObject.enqueue(1)
+queueObject.enqueue("Juan")
+queueObject.enqueue("PIPE")
+queueObject.enqueue(10)
+console.log(queueObject.printQueue())
+console.log(queueObject.point4())
+queueObject.point10(10)
+//EJERCISIO 4 - Caso de prueba 2
+console.log("Caso de prueba 2 - EJERCISIO 4")
+queueObject.enqueue(1)
+queueObject.enqueue("Mike")
+queueObject.enqueue(3)
+queueObject.enqueue("Rost")
+queueObject.enqueue(3)
+queueObject.enqueue("Lila")
+queueObject.enqueue(1)
+queueObject.enqueue("Juan")
+queueObject.enqueue("PIPE")
+queueObject.enqueue(7)
+console.log(queueObject.printQueue())
+console.log(queueObject.point4())
+//EJERCISIO 5 - Caso de prueba 1
+console.log("Caso de prueba 1 - EJERCISIO 5")
+console.log(queueObject.printQueue())
+console.log(queueObject.point5())
+//EJERCISIO 6 - Caso de prueba 1
+console.log("Caso de prueba 1 - EJERCISIO 6")
+console.log(queueObject.printQueue())
+console.log(queueObject.point6())
+//EJERCISIO 7 - Caso de prueba 1
+console.log("Caso de prueba 1 - EJERCISIO 7")
+console.log(queueObject.printQueue())
+console.log(queueObject.point7())
+//EJERCISIO 8 - Caso de prueba 1
+console.log("Caso de prueba 1 - EJERCISIO 8")
+console.log(queueObject.printQueue())
+console.log(queueObject.point8("Mike"))
+console.log(queueObject.printQueue())
+//EJERCISIO 9 - Caso de prueba 1
+console.log("Caso de prueba 1 - EJERCISIO 9")
+console.log(queueObject.printQueue())
+console.log(queueObject.point9(2))
+console.log(queueObject.printQueue())
+//EJERCISIO 10 - Caso de prueba 1
+console.log("Caso de prueba 1 - EJERCISIO 10")
+console.log(queueObject.printQueue())
+console.log(queueObject.point10(5))
+console.log(queueObject.printQueue())

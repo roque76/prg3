@@ -69,6 +69,16 @@ class BinaryTree{
         output.push(auxNode.value)
         return output
     }
+    inOrder(auxNode, output=[]){
+        if(!auxNode){
+            return
+        }
+        this.inOrder(auxNode.left, output)
+        output.push(auxNode.value)
+        this.inOrder(auxNode.right, output)
+
+        return output
+    }
 
     createTreeFromArray6(data){
         for(let i = 0; i<data.length; i++){
@@ -78,7 +88,7 @@ class BinaryTree{
 
     point3(){
         while(true){
-            const value = prompt("Ingresar numero ó digitar 'A' para terminar: ")
+            let value = prompt("Ingresar numero ó digitar 'A' para terminar: ")
 
             if(value == "A"){
                 break
@@ -129,8 +139,9 @@ console.log(test1.maxValue4())
 console.log(test1.minValue5())
 console.log(test1.preOrder(test1.head))
 console.log(test1.postOrder(test1.head))
+console.log(test1.inOrder(test1.head))
 
 test2 = new BinaryTree()
-test2.createTreeFromArray6([7,4,8,9,10,3,0,2,1])
+test2.point3()
 console.log(test2.preOrder(test2.head))
 
